@@ -1,0 +1,19 @@
+<div>
+  <div class="progredegru">
+    <p v-for="phase in listPhases" :key="phase.id" :class="[classPhase(phase.title), isSelected(phase)]">{{ formatNamePhase(phase.title) }}</p>
+  </div>
+  <div class="catofirespo">
+    <div class="priselec">
+      <div class="nice-select" tabindex="0" @click="openList()">
+        <span class="current">{{ valueSelected.toUpperCase() }}</span>
+        <ul class="list" v-show="isOpen">
+          <li v-for="(phase, index) in listPhases"
+              class="option"
+              :class="[isPhaseSelected(phase.title)]"
+              :key="id"
+              @click="setPhaseSelected(phase)">{{ phase.title.toUpperCase() }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

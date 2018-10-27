@@ -1,0 +1,101 @@
+<div>
+  <div class="cajaestafix">
+
+    <div class="itenestafix">
+      <p class="subfix">POSESIÓN DEL BALÓN</p>
+      <div class="losequi">
+        <div class="cajalo">
+          <div class="itenlose bordef">
+            <p>{{ item.equip_1.slice(0, 2).toUpperCase() }}</p>
+            <div class="rectangulo"></div>
+          </div>
+          <div class="itenlose">
+            <div class="rectangulopb"></div>
+            <p>{{ item.equip_2.slice(0, 2).toUpperCase() }}</p>
+          </div>
+        </div>
+        <div class="porce">
+          <p>{{ item.ball_posessions ? item.ball_posessions.local_posession : '-' }}</p>
+          <div class="cajacircle boxAveragePosetion">
+            <vue-knob v-model="percentAveragePosetionVisit" />
+          </div>
+          <p>{{ item.ball_posessions ? item.ball_posessions.visit_posession : '-' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="itenestafix bor">
+      <p class="subfix">DISPAROS AL ARCO</p>
+      <div class="losequi">
+        <div class="cajalo">
+          <div class="itenlose bordef">
+            <p>{{ item.equip_1.slice(0, 2).toUpperCase() }}</p>
+            <div class="rectangulo"></div>
+          </div>
+          <div class="itenlose">
+            <div class="rectangulopg"></div>
+            <p>{{ item.equip_2.slice(0, 2).toUpperCase() }}</p>
+          </div>
+        </div>
+        <div class="porce">
+          <p>{{ item.incidents_local ? item.incidents_local.shots_to_arc : '-' }}</p>
+          <div class="cajacircle boxPercentShots">
+            <vue-knob v-model="percentShotsVisit" />
+          </div>
+          <p>{{ item.incidents_visit ? item.incidents_visit.shots_to_arc : '-' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="itenestafix">
+      <p class="subfix">FALTAS COMETIDAS</p>
+      <div class="losequi">
+        <div class="cajalo">
+          <div class="itenlose bordef">
+            <p>{{ item.equip_1.slice(0, 2).toUpperCase() }}</p>
+            <div class="rectangulo"></div>
+          </div>
+          <div class="itenlose">
+            <div class="rectangulopj"></div>
+            <p>{{ item.equip_2.slice(0, 2).toUpperCase() }}</p>
+          </div>
+        </div>
+        <div class="porce">
+          <p>{{ item.incidents_local ? item.incidents_local.fouls_committed : '-' }}</p>
+          <div class="cajacircle boxPercentFouls">
+            <vue-knob v-model="percentFoulsVisit" />
+          </div>
+          <p>{{ item.incidents_visit ? item.incidents_visit.fouls_committed : '-' }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="otraesta">
+    <div class="itenoes">
+      <p class="numfix">{{ corners_local }}</p>
+      <p>TIROS DE ESQUINA</p>
+      <p class="numfix">{{ corners_visit }}</p>
+    </div>
+    <div class="itenoes">
+      <p class="numfix">{{ passes_corrects_local }}</p>
+      <p>PASES CORRECTOS</p>
+      <p class="numfix">{{ passes_corrects_visit }}</p>
+    </div>
+    <div class="itenoes">
+      <p class="numfix">{{ yellow_cards_local }}</p>
+      <p>TARJETAS AMARILLAS</p>
+      <p class="numfix">{{ yellow_cards_visit }}</p>
+    </div>
+    <div class="itenoes">
+      <p class="numfix">{{ red_cards_local }}</p>
+      <p>TARJETAS ROJAS</p>
+      <p class="numfix">{{ red_cards_visit }}</p>
+    </div>
+    <div class="itenoes">
+      <p class="numfix">{{ outsides_local }}</p>
+      <p>POSICIONES ADELANTADAS</p>
+      <p class="numfix">{{ outsides_visit }}</p>
+    </div>
+  </div>
+</div>

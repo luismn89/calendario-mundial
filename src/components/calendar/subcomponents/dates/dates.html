@@ -1,0 +1,26 @@
+<div>
+  <div class="cajafechaspe">
+    <div v-for="(day, index) in listDays" :key="day.id" class="fondope" :class="[ day.selected ? 'selected' : '', isDayActive(day)]"  @click.prevent="goDayPhase(day, index)">
+      <a class="itenfondope" href="#">
+        <p>{{ day.dayName }}<br><span class="fepe">{{ day.day }}</span></p>
+        <div class="numpartipe">
+          <p>{{ day.numMatch }}<i class="icon-circle"></i></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="catofirespo">
+    <div class="secuselec">
+      <div class="nice-select" tabindex="0" @click="openList()">
+        <span class="current">{{ valueSelected.dayNameComplete }} {{ valueSelected.day }}</span>
+        <ul class="list" v-show="isOpen">
+          <li v-for="(day, index) in listDaysCurrent"
+              class="option"
+              :class="[isSelected(`${day.day}${day.month}`)]"
+              :key="id"
+              @click="goDayPhase(day, null)">{{ day.dayNameComplete }} {{ day.day}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

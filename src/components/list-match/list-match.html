@@ -1,0 +1,7 @@
+<div>
+    <h3 class="tituprifa">{{ phaseSelected.toUpperCase() }}</h3>
+    <div class="lineaequi"></div>
+    <div class="accordion" v-for="(item, index) in listMatches" :key="item.id">
+      <match class="accordion-section" :item="item"></match>
+    </div>
+</div>

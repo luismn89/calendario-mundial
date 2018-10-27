@@ -1,0 +1,35 @@
+<div>
+  <a class="accordion-section-title" :href="hookId('href')" @click.prevent="slideDown()">
+    <div class="tituacor">
+      <p class="gru">{{ item.group_name }} / {{ dateFormat }}
+        <br>
+        <samp class="fra">{{ item.stadium_name }}. {{ item.city }}</samp>
+      </p>
+      <div class="cajapaiho">
+        <div class="priequifix">
+          <img :src="item.flag_equip_1" alt="">
+          <h3 class="fixpades">{{ item.equip_1 }}</h3>
+          <h3 class="fixpares">{{ item.equip_1.slice(0, 3).toUpperCase() }}</h3>
+        </div>
+        <div class="horafix" v-if="item.status.toLowerCase() == 'finalizado'">
+        <!-- <div class="horafix" v-if="item.incidents_local"> -->
+          <p class="fixpades">{{ item.goals_equip_1 }} - {{ item.goals_equip_2 }}</p>
+          <p class="fixpares">{{ item.goals_equip_1 }} - {{ item.goals_equip_2 }}</p>
+        </div>
+        <div class="horafix" v-else>
+            <p class="fixpades">{{ item.hour_game }}:{{ item.minute_game }} hs.</p>
+            <p class="fixpares">{{ item.hour_game }}:{{ item.minute_game }}</p>
+        </div>
+        <div class="priequifix2">
+          <h3 class="fixpades">{{ item.equip_2 }}</h3>
+          <h3 class="fixpares">{{ item.equip_2.slice(0, 3).toUpperCase() }}</h3>
+          <img :src="item.flag_equip_2" alt="">
+        </div>
+        <i class="icodesple" :class="[activeStadistic ? 'icon-cancel' : 'icon-down-open']" v-if="item.incidents_local"></i>
+      </div>
+    </div>
+  </a>
+  <div :id="hookId('id')" class="accordion-section-content" v-show="activeStadistic">
+    <stadistic :item="item"></stadistic>
+  </div>
+</div>
